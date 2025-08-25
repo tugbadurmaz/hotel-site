@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300,400;700;1,300&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /* 1)*: Tüm HTML öğelerini kapsar.
+2)box-sizing: border-box: Padding ve border'lar genişliğe dahil edilir.
+3)padding: 0; margin: 0: Varsayılan boşluklar sıfırlanır. */
+}
+
+html {
+    font-size: 10px;
+    /* Bu, yazı boyutunu 10px yapar. Böylece 1.6rem demek 16px olur */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+
+    /* Tüm sayfanın yazı tipi: Open Sans
+Yazı boyutu: 1.6rem (16px)
+Arka plan: Beyaz
+Yazı rengi: Koyu gri
+Satır yüksekliği: 1.6 (daha okunabilir metinler) */
+
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    /* Linklerin alt çizgisi kalkar. */
+}
+
+h1,
+h2 {
+    font-weight: 300;
+    line-height: 1.2;
+
+    /* h1 ve h2 başlıkları ince (300) yazı tipine sahip olur.
+Satırlar arası mesafe azdır (1.2). */
+}
+
+p {
+    margin: 1rem 0;
+}
+
+img {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+    /* .text-center sınıfı verilen her şey ortalanır. */
+}
+
+/* navbar */
+.navbar {
+    display: flex;
+    /*İçindekileri yatay olarak yan yana dizer.*/
+    align-items: center;
+    /*Yükseklik içinde dikey ortalama yapar.*/
+    justify-content: space-between;
+    /* Sol ve sağa eşit boşluk vererek yerleştirir (örneğin logo solda, menü sağda).*/
+    background-color: var(--tub);
+    /*Arka plan rengini CSS değişkeniyle belirler. */
+    opacity: 0.8;
+    /* Saydamlık verir (%80 görünür).*/
+    color: #fff;
+    /**/
+    position: fixed;
+    /* Sayfada kaydırılsa bile navbar hep üstte sabit kalır.*/
+    top: 0;
+    /*Sayfanın en üstüne yapışır.*/
+    width: 100%;
+    /*Sayfanın tamamını kaplar.*/
+    height: 70px;
+    /*Yüksekliği 70 piksel.*/
+    padding: 0 3rem;
+    /*Sağdan ve soldan 3 rem boşluk (30px gibi düşünebilirsin).*/
+}
+
+.navbar a {
+    color: #fff;
+    padding: 1rem 2rem;
+    /*Üst-alt 1 rem, sağ-sol 2 rem.*/
+    margin: 0 .5px;
+    /*Kenar boşluğu (margin): Yatayda çok az boşluk (.5px)*/
+}
+
+
+.navbar a:hover {
+    border-bottom: 2px solid var(--earth);
+}
+
+
+.navbar ul {
+    display: flex;
+    /*Menüdeki <ul> öğeleri yatay (yan yana) görünür.*/
+}
+
+.navbar .brand {
+    font-weight: 400;
+    /*Logonun veya markanın yazı kalınlığı normal seviyede (400).*/
+}
+
+.navbar h1 {
+    font-size: 3rem;
+}
+
+.navbar span {
+    color: var(--earth);
+    /* Navbar içindeki <span> etiketiyle yazılmış şeyler vurgulanır */
+}
+
+/*header*/
+.main-header {
+    background-image: url('../img/bg-1t.jpg');
+    background-repeat: no-repeat;
+    /* Arka plan resmi tekrar etmesin */
+    background-size: cover;
+    /* Arka plan resmi tüm alanı kaplasın (orantılı biçimde) */
+    background-position: center;
+    /* Arka plan resmi ortalansın */
+    height: 100vh;
+    /* Yükseklik, ekranın tamamı kadar olsun (100% of viewport height) */
+    color: #fff;
+    position: relative;
+    /* İçine eklenen ::before gibi konumlandırılmış öğeler için referans konum */
+}
+
+
+.main-header.blog {
+    background-image: url('../img/foti.jpg');
+    height: 50vh;
+}
+
+.main-header .content {
+    display: flex;
+    flex-direction: column;
+    /* Öğeleri dikey sırala */
+    align-items: center;
+    /* Öğeleri yatayda ortala */
+    justify-content: center;
+    /* Öğeleri dikeyde ortala */
+    text-align: center;
+    /* Yazıları ortala */
+    height: 100%;
+    /* Kendi yüksekliği, kapsayıcısının tamamı kadar olsun */
+}
+
+.main-header::before {
+    content: '';
+    /* Boş içerik oluşturarak görsel bir katman ekle */
+    position: absolute;
+    /* Konumunu mutlak belirle */
+    top: 0;
+    /* Sol üst köşeye hizala */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.6);
+    /* Yarı saydam siyah arka plan (overlay efekti) */
+}
+
+
+.main-header * {
+    z-index: 5;
+    /* .main-header içindeki tüm öğeler üstte görünsün (overlay'in altında kalmasın) */
+}
+
+.main-header .content h1 {
+    font-size: 5.5rem;
+}
+
+.main-header .content p {
+    font-size: 2.3rem;
+    max-width: 60rem;
+    margin: 2rem 0 3rem;
+}
+
+/* icons */
+
+.icons {
+    padding: 30px;
+}
+
+.icons h3 {
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.icons i {
+    background-color: #D2C1B6;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+
+/* about */
+
+.about {
+    color: #fff;
+}
+
+
+.about h2 {
+    font-size: 4rem;
+    font-weight: 400;
+}
+
+.about p {
+    margin: 2rem 0;
+}
+
+
+/* gallery */
+
+.gallery img:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+
+/* cards */
+
+.card {
+    color: #fff;
+    font-weight: 700;
+}
+
+.card-body {
+    padding: 2rem;
+    margin-top: 5px;
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+/* teams */
+.teams img {
+    width: 250px;
+    /* Tüm fotoğraflar eşit genişlikte */
+    height: 250px;
+    /* Eşit yükseklik — daire için gerekli */
+    border-radius: 50%;
+    /* Yuvarlak görünüm */
+    object-fit: cover;
+    /* Görseli kırp ama bozmadan sığdır */
+    object-position: top;
+    /* Görselin üst kısmını göster (yüz için) */
+    display: block;
+    margin: 0 auto;
+}
+
+.teams img:hover {
+    opacity: 0.7;
+}
+
+.teams>div h2 {
+    margin-top: 20px;
+}
+
+/* contact */
+
+.column img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+
+.contact-form {
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: .5rem;
+}
+
+.contact-form .form-control {
+    margin-bottom: 1.5rem;
+}
+
+
+.contact-form input {
+    width: 100%;
+    padding: .5rem;
+    height: 40px;
+    border: 1px solid #f5f5f5;
+}
+
+.contact-form .btn {
+    margin-top: 20px;
+}
+
+.contact h2 {
+    font-size: 4rem;
+}
+
+/* article */
+
+.articles {
+    padding: 3rem 5rem;
+}
+
+.article {
+    margin-top: 1.5rem;
+    color: #fff;
+}
+
+
+/* footer */
+
+.custom-footer {
+    color: #fff;
+    padding: 40px 60px 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 150px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.footer-content>div {
+    text-align: left;
+    min-width: 250px;
+    margin: 10px;
+}
+
+
+.footer-right a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 8px;
+}
+
+.footer-right a i {
+    margin-right: 8px;
+}
+
+.footer-right a:hover {
+    color: #D2C1B6;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #555;
+    padding-top: 15px;
+    font-size: 15px;
+    color: #fff;
+}
+
+/* mobile */
+
+@media(max-width: 768px) {
+    html {
+        font-size: 9px;
+
+    }
+
+    .navbar {
+        flex-direction: column;
+        height: 120px;
+        padding: 20px;
+    }
+
+    .navbar a {
+        padding: 10px;
+        margin: 0 3px;
+    }
+
+    .teams img {
+        width: 70%;
+    }
+
+}
